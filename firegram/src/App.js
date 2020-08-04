@@ -9,8 +9,8 @@ function App() {
 
   return (
     <div className="App">
-      <Title/>
-      <UploadForm/>
+      <Title />
+      <UploadForm />
       <ImageGrid setSelectedImage={setSelectedImage} />
       <Modal selectedImage={selectedImage} setSelectedImage={setSelectedImage} />
     </div>

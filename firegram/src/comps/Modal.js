@@ -1,19 +1,25 @@
 import React from 'react'
+import { motion } from 'framer-motion';
 
 const Modal = ({ selectedImage, setSelectedImage }) => {
-    
-    const  handleClick = (e) => {
+
+    const handleClick = (e) => {
         if (e.target.classList.contains("backdrop")) {
-            setSelectedImage(null);   
+            setSelectedImage(null);
         }
     };
 
     return (
-        selectedImage && <div className="backdrop"
-        onClick={handleClick}
+        selectedImage && <motion.div className="backdrop"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            onClick={handleClick}
         >
-            <img src={selectedImage} alt="pic" />
-        </div>
+            <motion.img src={selectedImage} alt="pic"
+                initial={{ y: "-10vh" }}
+                animate={{ y: 0 }}
+            />
+        </motion.div>
     )
 }
 

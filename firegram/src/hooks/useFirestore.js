@@ -6,14 +6,14 @@ const useFireStore = (collection) => {
 
     useEffect(() => {
         const unsub = projectFireStore.collection(collection)
-        .orderBy("createdAt", "desc")
-        .onSnapshot((snap) => {
-            let documents = [];
-            snap.forEach((doc) => {
-                documents.push({...doc.data(), id: doc.id})
+            .orderBy("createdAt", "desc")
+            .onSnapshot((snap) => {
+                let documents = [];
+                snap.forEach((doc) => {
+                    documents.push({ ...doc.data(), id: doc.id })
+                })
+                setDocs(documents);
             })
-            setDocs(documents);
-        })
 
         return () => unsub();
     }, [collection]);
